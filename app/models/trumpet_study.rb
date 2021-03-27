@@ -1,0 +1,2 @@
+class TrumpetStudy < ApplicationRecord
+end

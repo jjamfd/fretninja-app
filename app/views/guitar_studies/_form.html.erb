@@ -1,0 +1,20 @@
+<%= form_with(model: guitar_study) do |form| %>
+  <% if guitar_study.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(guitar_study.errors.count, "error") %> prohibited this guitar_study from being saved:</h2>
+
+      <ul>
+        <% guitar_study.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_field :focus %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

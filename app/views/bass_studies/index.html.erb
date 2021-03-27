@@ -1,0 +1,19 @@
+  <span class="big bold">Bass Studies</span>
+  <span class="right"><%= link_to 'New Bass Study', new_bass_study_path, class: 'button' %></span>
+  <ul class="study-index">
+  <% @bass_studies.each do |bass_study| %>
+      <li>
+      <%= link_to bass_study do %>
+        <span>
+          <div class="left">
+            <p class="bold big"><i class="fas fa-book-open purple"></i><label>Study Focus:</label> <%= bass_study.focus %></p>
+          </div>
+          <div class="right">
+            <p></i><%= bass_study.created_at.strftime("%A, %B %d %Y") %></p>
+            <p ><label>Study Duration:</label> <%= distance_of_time_in_words(Time.now, bass_study.duration.seconds.from_now) %></p>
+          </div>
+        </span>
+      <% end %>
+      </li>
+  <% end %>
+  </ul>

@@ -1,0 +1,19 @@
+  <span class="big bold">Trumpet Studies</span>
+  <span class="right"><%= link_to 'New Trumpet Study', new_trumpet_study_path, class: 'button' %></span>
+  <ul class="study-index">
+  <% @trumpet_studies.each do |trumpet_study| %>
+      <li>
+      <%= link_to trumpet_study do %>
+        <span>
+          <div class="left">
+            <p class="bold big"><i class="fas fa-book-open purple"></i><label>Study Focus:</label> <%= trumpet_study.focus %></p>
+          </div>
+          <div class="right">
+            <p></i><%= trumpet_study.created_at.strftime("%A, %B %d %Y") %></p>
+            <p ><label>Study Duration:</label> <%= distance_of_time_in_words(Time.now, trumpet_study.duration.seconds.from_now) %></p>
+          </div>
+        </span>
+      <% end %>
+      </li>
+  <% end %>
+  </ul>

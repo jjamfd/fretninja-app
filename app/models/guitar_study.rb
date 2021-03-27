@@ -1,0 +1,2 @@
+class GuitarStudy < ApplicationRecord
+end

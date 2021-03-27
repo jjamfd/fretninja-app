@@ -1,0 +1,19 @@
+  <span class="big bold">Piano Studies</span>
+  <span class="right"><%= link_to 'New Piano Study', new_piano_study_path, class: 'button' %></span>
+  <ul class="study-index">
+  <% @piano_studies.each do |piano_study| %>
+      <li>
+      <%= link_to piano_study do %>
+        <span>
+          <div class="left">
+            <p class="bold big"><i class="fas fa-book-open purple"></i><label>Study Focus:</label> <%= piano_study.focus %></p>
+          </div>
+          <div class="right">
+            <p></i><%= piano_study.created_at.strftime("%A, %B %d %Y") %></p>
+            <p ><label>Study Duration:</label> <%= distance_of_time_in_words(Time.now, piano_study.duration.seconds.from_now) %></p>
+          </div>
+        </span>
+      <% end %>
+      </li>
+  <% end %>
+  </ul>

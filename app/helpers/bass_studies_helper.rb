@@ -1,0 +1,2 @@
+module BassStudiesHelper
+end
