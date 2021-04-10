@@ -1,0 +1,21 @@
+<%= form_with(model: intervallic_formula) do |form| %>
+  <% if intervallic_formula.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(intervallic_formula.errors.count, "error") %> prohibited this intervallic_formula from being saved:</h2>
+
+      <ul>
+        <% intervallic_formula.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div >
+    <%= form.text_field :name %>
+    <%= form.text_field :formula %>
+  </div>
+  <div >
+    <%= form.submit %>
+  </div>
+<% end %>

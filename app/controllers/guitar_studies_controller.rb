@@ -8,10 +8,12 @@ class GuitarStudiesController < ApplicationController
 
   # GET /guitar_studies/1 or /guitar_studies/1.json
   def show
+    @formula = IntervallicFormula.find(params[:id])
   end
 
   # GET /guitar_studies/new
   def new
+    @formulas = IntervallicFormula.all
     @guitar_study = GuitarStudy.new
   end
 
@@ -64,6 +66,6 @@ class GuitarStudiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guitar_study_params
-      params.fetch(:guitar_study, {}).permit(:focus)
+      params.fetch(:guitar_study, {}).permit(:focus, :formula, :key)
     end
 end

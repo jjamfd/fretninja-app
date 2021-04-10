@@ -18,7 +18,9 @@
 @import 'variables';
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&family=Righteous&display=swap');
 
-* {
+*,
+*::before,
+*::after {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -50,6 +52,10 @@ html, body {
     padding:0;
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+.hidden {
+    display: none;
 }
 
 .bold {
@@ -126,6 +132,25 @@ ul, li{
     color: $orange;
 }
 
+.carbon {
+    color: $carbon;
+}
+
+.charcoal {
+    color: $charcoal;
+}
+
+.gray {
+    color: $gray;
+}
+
+.darkgray {
+    color: $darkgray;
+}
+
+.lightgray {
+    color: $lightgray;
+}
 
 #login-page input[type="text"], 
 #login-page input[type="password"], 
@@ -284,14 +309,13 @@ ul, li{
     font-size: 1.3em;
 }
 
-#main::-webkit-scrollbar {
-    border: 1px solid $charcoal;
-    background-color: $charcoal;
-    width: 22px;
+#main::-webkit-scrollbar, select::-webkit-scrollbar {
+    border: 1px solid $offwhite;
+    background-color: $offwhite;
+    width: 12px;
 }
 
-#main::-webkit-scrollbar-thumb {
-    border: 5px solid $eggplant;
+#main::-webkit-scrollbar-thumb, select::-webkit-scrollbar-thumb {
     border-radius: 15px;
     background: $purple;
 }
@@ -448,3 +472,48 @@ ul.study-index span, ul.study-index div {
     text-align: right;
 }
 
+#pause {
+    display: none;
+}
+
+#metronome, #tuning-fork {
+    background-color: $charcoal;
+    color: $white;
+    padding: 15px;
+    margin:  .6em;
+    border-radius: 10px;
+    width: 300px;
+    height: 130px;
+}
+
+#metronome button, #tuning-fork button {
+    background-color: $black;
+    border-radius: 20px;
+    font-size: 1.4em;
+    width: 100%;
+}
+
+#tuning-fork select {
+    border-radius: 1em;
+    background-color: $white;
+    width: 100%;
+    margin: -.9em auto 0 auto;
+    line-height: 1em;
+    height: 1.2em;
+    font-size: .8em;
+    padding: .1em;
+    vertical-align: middle;
+}
+
+#study-section1 div{
+    float: left;
+}
+
+#tempo-slider, #tuning-slider {
+    margin: 1.9em 0 1em 0 ;
+}
+
+#tuning-fork span, #metronome span {
+    height: 2em;
+    padding: 0;
+}

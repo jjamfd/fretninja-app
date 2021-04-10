@@ -1,4 +1,105 @@
-<p id="notice"><%= notice %></p>
+<div id="fretboard" class="left">
+<%= form_for(@guitar_study) do |f| %>
 
-<%= link_to 'Edit', edit_guitar_study_path(@guitar_study) %> |
-<%= link_to 'Back', guitar_studies_path %>
+<%= f.hidden_field @guitar_study.formula, :value => @formula.formula, :id => "formula" %>
+<%= f.hidden_field @guitar_study.formula, :value => @formula.name, :id => "formula-name"%>
+<%= f.hidden_field @guitar_study.key, :value => @guitar_study.key, :id => "key" %>
+
+<% end %>
+  <svg id="guitar-svg" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1590 200" preserveAspectRatio="xMidYMid meet" width="1590" height="200">
+    <g color="rgb(51, 51, 51)">
+      <!-- frets -->
+      <path
+        d="M0 10 0 135 
+          M66 10 66 135 
+          M132 10 132 135 
+          M198 10 198 135
+          M264 10 264 135 
+          M330 10 330 135 
+          M396 10 396 135 
+          M462 10 462 135
+          M528 10 528 135 
+          M594 10 594 135 
+          M660 10 660 135 
+          M726 10 726 135
+          M795 10 795 135 
+          M858 10 858 135 
+          M924 10 924 135 
+          M990 10 990 135
+          M1056 10 1056 135 
+          M1122 10 1122 135 
+          M1188 10 1188 135 
+          M1254 10 1254 135
+          M1320 10 1320 135 
+          M1386 10 1386 135 
+          M1452 10 1452 135 
+          M1518 10 1518 135
+          M1584 10 1584 135"
+        stroke-width="8"
+        stroke="currentcolor"
+    />
+    <!-- strings -->
+    <rect class="string" x="0" y="10" width="1588" height="5" fill="currentcolor" />
+    <rect class="string" x="0" y="35" width="1588" height="5" fill="currentcolor" />
+    <rect class="string" x="0" y="60" width="1588" height="5" fill="currentcolor" />
+    <rect class="string" x="0" y="85" width="1588" height="5" fill="currentcolor" />
+    <rect class="string" x="0" y="110" width="1588" height="5" fill="currentcolor" />
+    <rect class="string" x="0" y="135" width="1588" height="5" fill="currentcolor" />
+    <!-- inlay -->
+    <circle cx="166" cy="74" r="3" stroke-width="6" stroke="currentcolor" />
+    <circle cx="298" cy="74" r="3" stroke-width="6" stroke="currentcolor" />
+    <circle cx="430" cy="74" r="3" stroke-width="6" stroke="currentcolor" />
+    <circle cx="562" cy="74" r="3" stroke-width="6" stroke="currentcolor" />
+    <circle cx="760" cy="125" r="3" stroke-width="6" stroke="currentcolor" />
+    <circle cx="760" cy="25" r="3" stroke-width="6" stroke="currentcolor" />
+    <circle cx="958" cy="74" r="3" stroke-width="6" stroke="currentcolor" />
+    <circle cx="1090" cy="74" r="3" stroke-width="6" stroke="currentcolor" />
+    <circle cx="1222" cy="74" r="3" stroke-width="6" stroke="currentcolor" />
+    <circle cx="1354" cy="74" r="3" stroke-width="6" stroke="currentcolor" />
+    <circle cx="1552" cy="125" r="3" stroke-width="6" stroke="currentcolor" />
+    <circle cx="1552" cy="25" r="3" stroke-width="6" stroke="currentcolor" />
+  </g>
+</svg>
+</div>
+
+<div id="tuning-fork" class="left">
+  <span>
+    <span class="left">Tuner</span>
+    <span id="tuning-note-value-hidden" class="lightgray right hidden">440</span>
+    <span id="tuning-note-value" class="lightgray right">A</span>
+  </span>
+  <div id="tuning-slider"></div>
+  <button id="tuning-note"><i class="fas fa-wave-square fuschia"></i></button>
+  <audio id="tuning-note-audio" class="audio" src="/static/audio/tuningfork440.mp3"></audio>
+</div>
+<div id="metronome" class="left">
+  <span>
+    <span class="left">Metronome</span>
+    <span id="tempo_value" class="lightgray right">120 BPM</span>
+    <span id="tempo_value-hidden" class="hidden">120</span>
+  </span>
+  <div id="tempo-slider"></div>
+
+  <button id="play" class="audio" type="button" ><i class="fas fa-play green"></i></button>
+  <button id="pause" class="audio" type="button" ><i class="fas fa-stop red"></i></button>
+
+  <audio id="click40" class="audio" src="/static/audio/40bpm.mp3"></audio>
+  <audio id="click50" class="audio" src="/static/audio/50bpm.mp3"></audio>
+  <audio id="click60" class="audio" src="/static/audio/60bpm.mp3"></audio>
+  <audio id="click70" class="audio" src="/static/audio/70bpm.mp3"></audio>
+  <audio id="click80" class="audio" src="/static/audio/80bpm.mp3"></audio>
+  <audio id="click90" class="audio" src="/static/audio/90bpm.mp3"></audio>
+  <audio id="click100" class="audio" src="/static/audio/100bpm.mp3"></audio>
+  <audio id="click110" class="audio" src="/static/audio/110bpm.mp3"></audio>
+  <audio id="click120" class="audio" src="/static/audio/120bpm.mp3"></audio>
+  <audio id="click130" class="audio" src="/static/audio/130bpm.mp3"></audio>
+  <audio id="click140" class="audio" src="/static/audio/140bpm.mp3"></audio>
+  <audio id="click150" class="audio" src="/static/audio/150bpm.mp3"></audio>
+  <audio id="click160" class="audio" src="/static/audio/160bpm.mp3"></audio>
+  <audio id="click170" class="audio" src="/static/audio/170bpm.mp3"></audio>
+  <audio id="click180" class="audio" src="/static/audio/180bpm.mp3"></audio>
+  <audio id="click190" class="audio" src="/static/audio/190bpm.mp3"></audio>
+  <audio id="click200" class="audio" src="/static/audio/200bpm.mp3"></audio>
+  <audio id="click210" class="audio" src="/static/audio/210bpm.mp3"></audio>
+  <audio id="click220" class="audio" src="/static/audio/220bpm.mp3"></audio>
+</div>

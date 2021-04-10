@@ -1,0 +1,16 @@
+<h1>Intervallic Formulas</h1>
+    <hr>
+    <ul>
+    <% @intervallic_formulas.each do |intervallic_formula| %>
+      <li>
+        <span class="bold"><%= intervallic_formula.name %></span>
+        <div class="right">
+        <%= link_to 'Show', intervallic_formula %>
+        <%= link_to 'Edit', edit_intervallic_formula_path(intervallic_formula) %>
+        <%= link_to 'Destroy', intervallic_formula, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+        <hr>
+      </li>
+    <% end %>
+    </ul>
+<%= link_to 'New Intervallic Formula', new_intervallic_formula_path %>

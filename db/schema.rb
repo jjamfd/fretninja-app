@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_25_182011) do
+ActiveRecord::Schema.define(version: 2021_04_09_213032) do
 
   create_table "bass_studies", charset: "utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -21,7 +21,16 @@ ActiveRecord::Schema.define(version: 2021_03_25_182011) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "focus"
-    t.integer "duration"
+    t.integer "duration", default: 0
+    t.string "formula"
+    t.integer "key"
+  end
+
+  create_table "intervallic_formulas", charset: "utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "formula"
   end
 
   create_table "piano_studies", charset: "utf8", force: :cascade do |t|

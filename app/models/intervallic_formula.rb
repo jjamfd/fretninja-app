@@ -1,0 +1,2 @@
+class IntervallicFormula < ApplicationRecord
+end

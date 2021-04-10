@@ -7,10 +7,7 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import "../scrollbar.js"
-
+import "./studies.js"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-
