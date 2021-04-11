@@ -517,3 +517,45 @@ ul.study-index span, ul.study-index div {
     height: 2em;
     padding: 0;
 }
+
+#fretboard {
+    position: relative;
+    height: 9.4em;
+    max-height: 9.4em;
+    overflow: visble;
+    padding:0;
+    margin:0;
+}
+
+#neck-position-div {
+    height: 9.4em;
+    max-height: 9.4em;
+    width: 19em;
+    position: absolute;
+    border: 1px dashed $fuschia;
+    border-radius: 1em;
+    min-height: 1.7em;
+    min-width: 1em;
+    max-width: 99.3em;
+    padding:0;
+    margin:0;
+    box-shadow: 0 0 10px $fuschia;
+}
+
+.notes {
+    margin-top: -9999px;
+}
+
+#adjust-fretboard:focus {
+    outline: none;
+}
+
+#adjust-fretboard {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: .9em;
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+}

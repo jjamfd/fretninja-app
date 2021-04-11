@@ -33,9 +33,37 @@ var strings = [
   "137"
 ]
 
-var notes = new Array();
+var notes_sharps = [ "C",
+  "^C",
+  "D",
+  "^D",
+  "E",
+  "F",
+  "^F",
+  "G",
+  "^G",
+  "A",
+  "^A",
+  "B"
+]
+
+var notes_flats = [ "C",
+  "_D",
+  "D",
+  "_E",
+  "E",
+  "F",
+  "_G",
+  "G",
+  "_A",
+  "A",
+  "_B",
+  "B"
+]
+
+var guitar_notes = new Array();
 // C
-notes[0] = new Map([[frets[7], strings[5]], [frets[19], strings[5]],
+guitar_notes[0] = new Map([[frets[7], strings[5]], [frets[19], strings[5]],
                         [frets[2], strings[4]], [frets[14], strings[4]],
                             [frets[9], strings[3]], [frets[21], strings[3]],
                     [frets[4], strings[2]], [frets[16], strings[2]],
@@ -43,7 +71,7 @@ notes[0] = new Map([[frets[7], strings[5]], [frets[19], strings[5]],
                     [frets[6], strings[0]], [frets[18], strings[0]],
 ])
 // C#/Db
-notes[1] = new Map([[frets[8], strings[5]], [frets[20], strings[5]],
+guitar_notes[1] = new Map([[frets[8], strings[5]], [frets[20], strings[5]],
                     [frets[3], strings[4]], [frets[15], strings[4]],
                     [frets[10], strings[3]], [frets[22], strings[3]],
                     [frets[5], strings[2]], [frets[17], strings[2]],
@@ -51,7 +79,7 @@ notes[1] = new Map([[frets[8], strings[5]], [frets[20], strings[5]],
                     [frets[7], strings[0]], [frets[19], strings[0]],
 ])
 // D
-notes[2] = new Map([[frets[9], strings[5]], [frets[21], strings[5]],
+guitar_notes[2] = new Map([[frets[9], strings[5]], [frets[21], strings[5]],
                     [frets[4], strings[4]], [frets[16], strings[4]],
                     [frets[11], strings[3]], [frets[23], strings[3]],
                     [frets[6], strings[2]], [frets[18], strings[2]],
@@ -59,7 +87,7 @@ notes[2] = new Map([[frets[9], strings[5]], [frets[21], strings[5]],
                     [frets[8], strings[0]], [frets[20], strings[0]],
 ])
 // D#/Eb
-notes[3] = new Map([[frets[10], strings[5]], [frets[22], strings[5]],
+guitar_notes[3] = new Map([[frets[10], strings[5]], [frets[22], strings[5]],
                         [frets[5], strings[4]], [frets[17], strings[4]],
                             [frets[12], strings[3]], [frets[0], strings[3]],
                     [frets[7], strings[2]], [frets[19], strings[2]],
@@ -67,7 +95,7 @@ notes[3] = new Map([[frets[10], strings[5]], [frets[22], strings[5]],
                     [frets[9], strings[0]], [frets[21], strings[0]],
 ])
 // E
-notes[4] = new Map([[frets[11], strings[5]], [frets[23], strings[5]],
+guitar_notes[4] = new Map([[frets[11], strings[5]], [frets[23], strings[5]],
                         [frets[6], strings[4]], [frets[18], strings[4]],
                             [frets[13], strings[3]], [frets[1], strings[3]],
                     [frets[8], strings[2]], [frets[20], strings[2]],
@@ -75,7 +103,7 @@ notes[4] = new Map([[frets[11], strings[5]], [frets[23], strings[5]],
                     [frets[10], strings[0]], [frets[22], strings[0]],
 ])
 // F
-notes[5] = new Map([[frets[12], strings[5]], [frets[0], strings[5]],
+guitar_notes[5] = new Map([[frets[12], strings[5]], [frets[0], strings[5]],
                         [frets[7], strings[4]], [frets[19], strings[4]],
                             [frets[14], strings[3]], [frets[2], strings[3]],
                     [frets[9], strings[2]], [frets[21], strings[2]],
@@ -83,7 +111,7 @@ notes[5] = new Map([[frets[12], strings[5]], [frets[0], strings[5]],
                     [frets[11], strings[0]], [frets[23], strings[0]],
 ])
 // F#/Gb
-notes[6] = new Map([[frets[13], strings[5]], [frets[1], strings[5]],
+guitar_notes[6] = new Map([[frets[13], strings[5]], [frets[1], strings[5]],
                         [frets[8], strings[4]], [frets[20], strings[4]],
                             [frets[15], strings[3]], [frets[3], strings[3]],
                     [frets[10], strings[2]], [frets[22], strings[2]],
@@ -91,7 +119,7 @@ notes[6] = new Map([[frets[13], strings[5]], [frets[1], strings[5]],
                     [frets[12], strings[0]], [frets[0], strings[0]],
 ])
 // G
-notes[7] = new Map([[frets[14], strings[5]], [frets[2], strings[5]],
+guitar_notes[7] = new Map([[frets[14], strings[5]], [frets[2], strings[5]],
                         [frets[9], strings[4]], [frets[21], strings[4]],
                             [frets[16], strings[3]], [frets[4], strings[3]],
                     [frets[11], strings[2]], [frets[23], strings[2]],
@@ -99,7 +127,7 @@ notes[7] = new Map([[frets[14], strings[5]], [frets[2], strings[5]],
                     [frets[13], strings[0]], [frets[1], strings[0]],
 ])
 // G#/Ab
-notes[8] = new Map([[frets[15], strings[5]], [frets[3], strings[5]],
+guitar_notes[8] = new Map([[frets[15], strings[5]], [frets[3], strings[5]],
                         [frets[10], strings[4]], [frets[22], strings[4]],
                                 [frets[17], strings[3]], [frets[5], strings[3]],
                     [frets[12], strings[2]], [frets[0], strings[2]],
@@ -107,7 +135,7 @@ notes[8] = new Map([[frets[15], strings[5]], [frets[3], strings[5]],
                     [frets[14], strings[0]], [frets[2], strings[0]],
 ])
 // A
-notes[9] = new Map([[frets[16], strings[5]], [frets[4], strings[5]],
+guitar_notes[9] = new Map([[frets[16], strings[5]], [frets[4], strings[5]],
                         [frets[11], strings[4]], [frets[23], strings[4]],
                                 [frets[18], strings[3]], [frets[6], strings[3]],
                     [frets[13], strings[2]], [frets[1], strings[2]],
@@ -115,7 +143,7 @@ notes[9] = new Map([[frets[16], strings[5]], [frets[4], strings[5]],
                     [frets[15], strings[0]], [frets[3], strings[0]],
 ])
 // A#/Bb
-notes[10] = new Map([[frets[17], strings[5]], [frets[5], strings[5]],
+guitar_notes[10] = new Map([[frets[17], strings[5]], [frets[5], strings[5]],
                                 [frets[12], strings[4]], [frets[0], strings[4]],
                                 [frets[19], strings[3]], [frets[7], strings[3]],
                     [frets[14], strings[2]], [frets[2], strings[2]],
@@ -123,7 +151,7 @@ notes[10] = new Map([[frets[17], strings[5]], [frets[5], strings[5]],
                     [frets[16], strings[0]], [frets[4], strings[0]],
 ])
 // B
-notes[11] = new Map([[frets[18], strings[5]], [frets[6], strings[5]],
+guitar_notes[11] = new Map([[frets[18], strings[5]], [frets[6], strings[5]],
                         [frets[13], strings[4]], [frets[1], strings[4]],
                                 [frets[20], strings[3]], [frets[8], strings[3]],
                     [frets[15], strings[2]], [frets[3], strings[2]],
@@ -196,23 +224,25 @@ var Metronome = {
 }
 
 function set_notes() {
-  //highlight.style.display = 'block';
-  //$( "#neck-position-div" ).resizable().draggable();
-  //var rect = highlight.getBoundingClientRect();
-
   var svgns = "http://www.w3.org/2000/svg"
-  const svg  = $("svg");
-  let i = 1
+  var svg  = $("svg");
+  var svg_offset = svg.offset();
+  var highlight = $("#neck-position-div");
+  var highlight_offset = highlight.offset();
+  var key = $("#key").val()-1;
   var formula = $("#formula").val();
-  var key = $("#key").val();
+  let i = 1
+  highlight.resizable().draggable();
+  highlight.resizable({containment: 'parent'});
+  highlight.draggable({containment: '#fretboard'});
   for (const scale_degree of formula.split(" ")) {
     key_offset = parseInt(key) + parseInt(scale_degree);
     if (key_offset > 11) {
             key_offset = key_offset - 12
     }
-    tones = notes[key_offset]
+    tones = guitar_notes[key_offset]
     for (let [x, y] of tones) {
-      if ( i == 1 ) {
+      if (i == 1) {
         stroke_color = "rgb(300, 0, 100)";
       } else {
         stroke_color = "rgb(0, 0, 0)";
@@ -225,8 +255,39 @@ function set_notes() {
       circle.setAttributeNS(null, 'style', 'fill: none; stroke: ' + stroke_color + '; stroke-width: 8px;' );
       svg.append(circle);
     }
-  i++
+  i++;
   }
+  $( ".notes" ).each(function( index ) {
+    var offset = $(this).offset();
+    if (( offset.top < highlight_offset.top ) || ( offset.left < highlight_offset.left ) || ( offset.top > highlight_offset.top + highlight.height() ) || ( offset.left > highlight_offset.left + highlight.width())) {
+      $(this).hide();
+    }
+  });
+}
+
+
+
+function display_seventh_chords() {
+  var key = $("#key").val()-1;
+  var abc_formula = $("#formula").val();
+  var tones = []
+  for (const scale_degree of abc_formula.split(" ")) {
+    key_offset = parseInt(key) + parseInt(scale_degree);
+    if (key_offset > 11) {
+      tmp = notes_flats[key_offset -12]
+      tmp = tmp.toString();
+      tmp = tmp.toLowerCase();
+      tones.push(tmp);
+    } else {
+      tones.push(notes_flats[key_offset]);
+    }
+  }
+  var abc = "T: Diatonic Seventh Chords's\n" +
+      			"M: 4/4\n" +
+		  	    "L: 1\n" +
+			      "|" + tones.join(" ") + "|"
+	ABCJS.renderAbc("paper", abc);
+  console.log(tones.join(" "));
 }
 
 
@@ -261,7 +322,9 @@ $( document ).on("turbolinks:load", ()=> {
   $("#tuning-note").click(Tuning.play_note);
   $("#play").click(Metronome.play);
   $("#pause").click(Metronome.pause);
+  $("#adjust-fretboard").click(set_notes);
   if (top.location.pathname.match('\/guitar_studies\/[0-9]')) {
     set_notes(); 
   }
+  display_seventh_chords();
 });

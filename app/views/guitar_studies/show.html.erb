@@ -1,4 +1,5 @@
 <div id="fretboard" class="left">
+<div id="neck-position-div"></div>
 <%= form_for(@guitar_study) do |f| %>
 
 <%= f.hidden_field @guitar_study.formula, :value => @formula.formula, :id => "formula" %>
@@ -62,6 +63,9 @@
 </svg>
 </div>
 
+<div class="left">
+<button id="adjust-fretboard" class="icon"><i class="fas fa-sync fuschia"></i></button>
+</div>
 <div id="tuning-fork" class="left">
   <span>
     <span class="left">Tuner</span>
@@ -103,3 +107,11 @@
   <audio id="click210" class="audio" src="/static/audio/210bpm.mp3"></audio>
   <audio id="click220" class="audio" src="/static/audio/220bpm.mp3"></audio>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="paper"></div>
+<input id="sharps-checkbox" type="checkbox"/>
