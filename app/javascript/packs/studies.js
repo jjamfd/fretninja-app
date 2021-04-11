@@ -1,3 +1,4 @@
+
 var frets = [ 52,
   118,
   184,
@@ -230,12 +231,14 @@ function set_notes() {
   var highlight = $("#neck-position-div");
   var highlight_offset = highlight.offset();
   var key = $("#key").val()-1;
-  var formula = $("#formula").val();
+  var tones = []
   let i = 1
   highlight.resizable().draggable();
   highlight.resizable({containment: 'parent'});
   highlight.draggable({containment: '#fretboard'});
-  for (const scale_degree of formula.split(" ")) {
+  var formula = $("#formula").val();
+  array = formula.split(" ");
+  for (const scale_degree of array) {
     key_offset = parseInt(key) + parseInt(scale_degree);
     if (key_offset > 11) {
             key_offset = key_offset - 12
@@ -245,7 +248,7 @@ function set_notes() {
       if (i == 1) {
         stroke_color = "rgb(300, 0, 100)";
       } else {
-        stroke_color = "rgb(0, 0, 0)";
+        stroke_color = "rgb(10, 0, 0)";
       }
       var circle = document.createElementNS(svgns, 'circle');
       circle.classList.add("notes");
@@ -269,8 +272,8 @@ function set_notes() {
 
 function display_seventh_chords() {
   var key = $("#key").val()-1;
-  var abc_formula = $("#formula").val();
   var tones = []
+  var abc_formula = $("#formula").val();
   for (const scale_degree of abc_formula.split(" ")) {
     key_offset = parseInt(key) + parseInt(scale_degree);
     if (key_offset > 11) {
@@ -282,12 +285,15 @@ function display_seventh_chords() {
       tones.push(notes_flats[key_offset]);
     }
   }
+  tmp = notes_flats[parseInt(abc_formula[0]) + parseInt(key)];
+  tmp = tmp.toString();
+  tmp = tmp.toLowerCase();
+  tones.push(tmp);
   var abc = "T: Diatonic Seventh Chords's\n" +
       			"M: 4/4\n" +
 		  	    "L: 1\n" +
 			      "|" + tones.join(" ") + "|"
 	ABCJS.renderAbc("paper", abc);
-  console.log(tones.join(" "));
 }
 
 
@@ -326,5 +332,7 @@ $( document ).on("turbolinks:load", ()=> {
   if (top.location.pathname.match('\/guitar_studies\/[0-9]')) {
     set_notes(); 
   }
-  display_seventh_chords();
+  if (top.location.pathname.match('\/guitar_studies\/[0-9]')) {
+    display_seventh_chords();
+  }
 });
