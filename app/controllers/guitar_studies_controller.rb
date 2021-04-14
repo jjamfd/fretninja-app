@@ -8,7 +8,8 @@ class GuitarStudiesController < ApplicationController
 
   # GET /guitar_studies/1 or /guitar_studies/1.json
   def show
-    @formula = IntervallicFormula.find(params[:id])
+    study = GuitarStudy.where("id = ?", params[:id]).select("formula").first
+    @formula = IntervallicFormula.where("id = ?", study.formula).first
   end
 
   # GET /guitar_studies/new

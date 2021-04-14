@@ -236,7 +236,7 @@ function set_notes() {
   highlight.resizable().draggable();
   highlight.resizable({containment: 'parent'});
   highlight.draggable({containment: '#fretboard'});
-  var formula = $("#formula").val();
+  var formula = $("#formula").val().trim();
   array = formula.split(" ");
   for (const scale_degree of array) {
     key_offset = parseInt(key) + parseInt(scale_degree);
@@ -273,27 +273,30 @@ function set_notes() {
 function display_seventh_chords() {
   var key = $("#key").val()-1;
   var tones = []
-  var abc_formula = $("#formula").val();
-  for (const scale_degree of abc_formula.split(" ")) {
+  var asc_formula_val = $("#formula").val().trim();
+  var desc_formula_val = $("#formula").val().trim();
+  var desc_formula = desc_formula_val.split(" ");
+  desc_formula.reverse();
+  desc_formula_val = desc_formula.join(" ");
+  asc_desc_formula = asc_formula_val.trim() +  " " + 12 + "  " + desc_formula_val.trim();
+  notes = notes_sharps
+  for (const scale_degree of asc_desc_formula.split(" ")) {
     key_offset = parseInt(key) + parseInt(scale_degree);
     if (key_offset > 11) {
-      tmp = notes_flats[key_offset -12]
+      tmp = notes[key_offset -12]
       tmp = tmp.toString();
       tmp = tmp.toLowerCase();
       tones.push(tmp);
     } else {
-      tones.push(notes_flats[key_offset]);
+      tones.push(notes[key_offset]);
     }
   }
-  tmp = notes_flats[parseInt(abc_formula[0]) + parseInt(key)];
-  tmp = tmp.toString();
-  tmp = tmp.toLowerCase();
-  tones.push(tmp);
   var abc = "T: Diatonic Seventh Chords's\n" +
       			"M: 4/4\n" +
-		  	    "L: 1\n" +
+		  	    "L: 1/4\n" +
 			      "|" + tones.join(" ") + "|"
 	ABCJS.renderAbc("paper", abc);
+  console.log(asc_desc_formula)
 }
 
 

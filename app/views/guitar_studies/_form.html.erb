@@ -13,7 +13,7 @@
 
   <div>
     <%= form.text_field :focus %>
-      <%= form.select :formula, options_for_select(@formulas.collect {|formula| [formula.name, formula.id]}.insert(0, 'Select a Scale or Chord Formula'),1),{},{ id: 'formula_select' } %>
+      <%= form.select :formula, options_for_select(@formulas.collect {|formula| [formula.name, formula.id]},1),{},{ id: 'formula_select' } %>
       <%= form.select :key, options_for_select([['Select a Key Signature', '0'],
                                              ['C', '1'],
                                              ['C#/Db', '2'],
