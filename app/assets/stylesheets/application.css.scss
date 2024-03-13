@@ -239,15 +239,15 @@ ul, li{
 }
 
 #main {
-    margin-left: 200px;
-    margin-top: 46px;
+    margin-left: 0;
+    margin-top: 130px;
     background-image: radial-gradient($lightgray, $white);
     background-repeat:no-repeat, repeat, repeat;
     height:100%;
     overflow-y: scroll;
     overflow-x: hidden;
     color: $charcoal;
-    padding: 15px;
+    padding: 130px 0 0 0;
 }
 
 #notice {
@@ -255,7 +255,7 @@ ul, li{
 }
 #navbar {
     opacity: .9;
-    height: 46px;
+    height: 66px;
     margin: 0;
     background-image: linear-gradient($darkgray, $charcoal);
     position: fixed;
@@ -477,32 +477,22 @@ ul.study-index span, ul.study-index div {
 }
 
 #metronome, #tuning-fork {
-    background-color: $charcoal;
     color: $white;
-    padding: 15px;
-    margin:  .6em;
-    border-radius: 10px;
+    font-size:.8em;
+    margin:  .1em;
     width: 300px;
-    height: 130px;
+    height: 100%;
+    float: right;
+    padding: 0 15px 0 15px;
+    border-left: 1px solid $black;  
 }
 
 #metronome button, #tuning-fork button {
-    background-color: $black;
-    border-radius: 20px;
-    font-size: 1.4em;
-    width: 100%;
-}
-
-#tuning-fork select {
-    border-radius: 1em;
-    background-color: $white;
-    width: 100%;
-    margin: -.9em auto 0 auto;
-    line-height: 1em;
-    height: 1.2em;
-    font-size: .8em;
-    padding: .1em;
-    vertical-align: middle;
+    background-color: $gray;
+    border-radius: 3px;
+    font-size: .2em;
+    width: 8em;
+    margin: 0 0 0 10px;
 }
 
 #study-section1 div{
@@ -510,16 +500,11 @@ ul.study-index span, ul.study-index div {
 }
 
 #tempo-slider, #tuning-slider {
-    margin: 1.9em 0 1em 0 ;
-}
-
-#tuning-fork span, #metronome span {
-    height: 2em;
-    padding: 0;
+    margin: .1em;
 }
 
 #fretboard {
-    position: relative;
+    position: absolute;
     height: 9.4em;
     max-height: 9.4em;
     overflow: visble;
@@ -530,16 +515,16 @@ ul.study-index span, ul.study-index div {
 #neck-position-div {
     height: 9.4em;
     max-height: 9.4em;
-    width: 19em;
+    width: 25em;
     position: absolute;
-    border: 1px dashed $fuschia;
-    border-radius: 1em;
+    border: 1px solid $carbon;
+    border-radius: .3em;
     min-height: 1.7em;
     min-width: 1em;
     max-width: 99.3em;
     padding:0;
     margin:0;
-    box-shadow: 0 0 10px $fuschia;
+    box-shadow: 0 0 10px $carbon;
 }
 
 .notes {

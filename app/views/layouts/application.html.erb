@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Theary</title>
+    <title>Fretwise</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -21,11 +21,7 @@
 
   <body >
   <% if user_signed_in? %>
-   
     <%= render 'layouts/menu' %>
-      <div class="left-nav" >
-        <%= render 'layouts/leftnav' %>
-      </div>
     <div id="main">
   <% end %>
   <%= yield %>

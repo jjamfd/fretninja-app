@@ -1,2 +1,0 @@
-class TrumpetStudy < ApplicationRecord
-end

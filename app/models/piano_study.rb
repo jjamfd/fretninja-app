@@ -1,2 +1,0 @@
-class PianoStudy < ApplicationRecord
-end

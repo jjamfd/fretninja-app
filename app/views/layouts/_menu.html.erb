@@ -1,17 +1,51 @@
 <div id="navbar">
   
   <!-- logo -->
-  <span id="app-name"><i class="fas fa-music"></i>THEARY</span>
+  <span id="app-name"><i class="fas fa-music"></i>FRETWISE</span>
   
   <!-- notice -->
-  <span id=notice><% if notice %><i class="fas fa-info-circle"></i><%= notice %><% end %></span>
-  <!-- user menu -->
-  <div id="dropdown" class="right">
-    <span><i class="fas fa-cog fa-1x" ></i><%= current_user.email %></span>
-    <ul id="user-dropdown-menu">
-      <li><%= link_to '<i class="fas fa-music"></i> Edit Formulas'.html_safe, intervallic_formulas_path %></li>
-      <li><%= link_to '<i class="fas fa-key"></i> Change Password'.html_safe, edit_user_registration_path %></li>
-      <li><%= link_to '<i class="fas fa-sign-out-alt"></i> Logout'.html_safe, destroy_user_session_path, :method => :delete %></li>
-    </ul>
+  <span>
+  <div id="tuning-fork" >
+    <span>
+      <span class="left">Tuner </span>
+      <span id="tuning-note-value-hidden" class="lightgray right hidden">440</span>
+      <span id="tuning-note-value" class="lightgray right">A</span>
+      <span> <button id="play_note"><i class="fas fa-play green"></i></button></span>
+
+    </span>
+    <div id="tuning-slider"></div>
+    <audio id="tuning-note-audio" class="audio" src="/static/audio/tuningfork440.mp3"></audio>
   </div>
+  <div id="metronome" >
+    <span>
+      <span class="left">Metronome</span>
+      <span id="tempo_value" class="lightgray right">120 BPM</span>
+      <button id="play" class="audio" type="button" ><i class="fas fa-play green"></i></button>
+      <button id="pause" class="audio" type="button" ><i class="fas fa-stop red"></i></button>
+      <span id="tempo_value-hidden" class="hidden">120</span>
+    </span>
+    <div id="tempo-slider"></div>
+    <audio id="click40" class="audio" src="/static/audio/40bpm.mp3"></audio>
+    <audio id="click50" class="audio" src="/static/audio/50bpm.mp3"></audio>
+    <audio id="click60" class="audio" src="/static/audio/60bpm.mp3"></audio>
+    <audio id="click70" class="audio" src="/static/audio/70bpm.mp3"></audio>
+    <audio id="click80" class="audio" src="/static/audio/80bpm.mp3"></audio>
+    <audio id="click90" class="audio" src="/static/audio/90bpm.mp3"></audio>
+    <audio id="click100" class="audio" src="/static/audio/100bpm.mp3"></audio>
+    <audio id="click110" class="audio" src="/static/audio/110bpm.mp3"></audio>
+    <audio id="click120" class="audio" src="/static/audio/120bpm.mp3"></audio>
+    <audio id="click130" class="audio" src="/static/audio/130bpm.mp3"></audio>
+    <audio id="click140" class="audio" src="/static/audio/140bpm.mp3"></audio>
+    <audio id="click150" class="audio" src="/static/audio/150bpm.mp3"></audio>
+    <audio id="click160" class="audio" src="/static/audio/160bpm.mp3"></audio>
+    <audio id="click170" class="audio" src="/static/audio/170bpm.mp3"></audio>
+    <audio id="click180" class="audio" src="/static/audio/180bpm.mp3"></audio>
+    <audio id="click190" class="audio" src="/static/audio/190bpm.mp3"></audio>
+    <audio id="click200" class="audio" src="/static/audio/200bpm.mp3"></audio>
+    <audio id="click210" class="audio" src="/static/audio/210bpm.mp3"></audio>
+    <audio id="click220" class="audio" src="/static/audio/220bpm.mp3"></audio>
+  </div>
+  </span>
+
+ 
 </div>

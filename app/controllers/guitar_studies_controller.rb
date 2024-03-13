@@ -8,6 +8,7 @@ class GuitarStudiesController < ApplicationController
 
   # GET /guitar_studies/1 or /guitar_studies/1.json
   def show
+    @formulas = IntervallicFormula.all
     study = GuitarStudy.where("id = ?", params[:id]).select("formula").first
     @formula = IntervallicFormula.where("id = ?", study.formula).first
   end
@@ -28,7 +29,7 @@ class GuitarStudiesController < ApplicationController
 
     respond_to do |format|
       if @guitar_study.save
-        format.html { redirect_to @guitar_study, notice: "Guitar study was successfully created." }
+        format.html { redirect_to @guitar_study, notice: "" }
         format.json { render :show, status: :created, location: @guitar_study }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +42,7 @@ class GuitarStudiesController < ApplicationController
   def update
     respond_to do |format|
       if @guitar_study.update(guitar_study_params)
-        format.html { redirect_to @guitar_study, notice: "Guitar study was successfully updated." }
+        format.html { redirect_to @guitar_study, notice: "" }
         format.json { render :show, status: :ok, location: @guitar_study }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -67,6 +68,6 @@ class GuitarStudiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guitar_study_params
-      params.fetch(:guitar_study, {}).permit(:focus, :formula, :key)
+      params.fetch(:guitar_study, {}).permit(:focus, :formula, :key, :tonic)
     end
 end
