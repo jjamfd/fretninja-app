@@ -17,11 +17,6 @@
 
 Fret Ninja is a simple tool for studying scales and arpeggios as well as aiding in fretboard visualization.
 
-### Built With
-
-* [![FontAwesome][fontawesome.com]][FontAwesome-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
