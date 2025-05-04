@@ -1,7 +1,7 @@
 <a id="readme-top"></a>
 <h3 align="center">Fret Ninja</h3>
   <p align="center">
-    project_description
+    Fretboard Visualization Tool
     <br />
     <br />
     <a href="https://fretninja.app">View Demo</a>
